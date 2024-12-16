@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+html, body {
+  background: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+canvas {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  z-index: -1;
+
+  opacity: 0%;
+  animation: fade-in 2s linear 0s forwards;
+}
+
+#ui {
+  opacity: 0%;
+  animation: fade-in 1s linear 1.5s forwards;
+
+  width: 1100px;
+  height: 700px;  
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#action-bar {
+  display: flex;
+  width: auto;
+  height: 25px;
+  margin: none;
+  padding: none;
+  backdrop-filter: blur(1px);
+}
+
+.ui-button-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.ui-button {
+  display: block;
+  width: 25px;
+  height: 25px;
+
+  margin: 0;
+  padding: 0;
+
+  border: none;
+  background: rgba(0, 0, 0, 0.15);
+  color: rgb(255, 255, 255);
+  transition: all 0.1s ease-in-out;
+}
+
+#toggle-config-button {
+  margin: auto;
+}
+
+.ui-button:hover {
+  border: 0.5px solid white;
+}
+
+input {
+  width: 100px;
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+  color: white;
+  
+}
+
+#config-menu {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 200px;
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(1px);
+  padding: 20px;
+
+  font-size: 12px;
+  transition: all 0.2s ease-in-out;
+}
+
+.config-obj {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: white;
+  font-family: "Inter";
+}
+
+#welcome {
+  font-family: "Inter";
+  font-weight: 900;
+  font-size: 80px;
+  color: white;
+}
+
+#start {
+  font-family: "Inter";
+  font-weight: 300;
+  font-size: 20px;
+  color: rgb(112, 157, 255);
+  text-decoration: none;
+  opacity: 0%;
+  animation: fade-in 1s linear 1.5s forwards
+}
+
+@keyframes fade-in {
+  from {opacity: 0%;}
+  to {opacity: 100%;}
+}
