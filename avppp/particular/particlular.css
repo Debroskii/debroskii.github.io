@@ -1,0 +1,90 @@
+#AVPPP {
+    font-family: var(--title-font);
+    text-align: center;
+}
+
+#InfoContent {
+    color: white;
+    font-family: var(--font);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: underline rgba(0, 0, 0, 0);
+    transition: text-decoration 0.1s ease-in-out;
+}
+
+a:hover {
+    text-decoration: underline var(--accent-color);
+}
+
+#ShortDesc {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#PanelDesc {
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;    
+    align-items: center;
+}
+
+#DiagramPointer {
+     width: 5px;
+     height: 5px;
+     box-shadow: 0 0 2px white;
+}
+
+#ExampleContent {
+    width: inherit;
+    height: inherit;
+    zoom: 50%;
+}
+
+#ExamplePanel {
+    width: 500px;
+    padding-left: 75px;
+    padding-right: 75px;
+}
+
+#ExamplePanel #Panel .TitleBar {
+    box-shadow: inset 0 0 0 2px rgb(255, 55, 55);
+}
+
+#ExamplePanel #Panel .RegistryPanelContent {
+    box-shadow: inset 0 0 0 2px rgb(55, 155, 255);
+}
+
+#EmitterDesc {
+    padding-top: 25px;
+    width: 1200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#EmitterDesc img {
+    padding-left: 25px;
+    padding-right: 75px;
+}
+
+.FunFact {
+    color: rgb(255, 217, 114);
+    font-style: italic;
+    font-weight: 600;
+}
+
+#ClosingText {
+    padding-top: 50px;
+    color: rgb(255, 86, 86);
+    font-weight: bold;
+}
