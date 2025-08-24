@@ -9,6 +9,8 @@
     --green-accent: #31E981;
     --beige-accent: #D1CAA1;
     font-size: 16px;
+    overflow: hidden;
+    overflowX: hidden;
 }
 
 body, html {
