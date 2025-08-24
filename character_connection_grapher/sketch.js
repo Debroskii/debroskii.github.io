@@ -5,7 +5,7 @@ let font = null;
 let input = null;
 
 function preload() {
-  font = loadFont('/assets/SourceCodePro-Regular.ttf');
+  font = loadFont('https://github.com/Debroskii/debroskii.github.io/raw/refs/heads/main/character_connection_grapher/assets/SourceCodePro-Regular.ttf');
 }
 
 function setup() {
