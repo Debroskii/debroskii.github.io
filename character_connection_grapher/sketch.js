@@ -5,7 +5,7 @@ let font = null;
 let input = null;
 
 function preload() {
-  font = loadFont('/SourceCodePro-Regular.ttf');
+  font = loadFont('/assets/SourceCodePro-Regular.ttf');
 }
 
 function setup() {
