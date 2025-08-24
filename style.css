@@ -8,6 +8,7 @@
     --blue-accent: #0197F6;
     --green-accent: #31E981;
     --beige-accent: #D1CAA1;
+    font-size: 16px;
 }
 
 body, html {
@@ -29,6 +30,7 @@ body, html {
     height: 100%;
     background: var(--dark);
     font-family: "Inter", sans-serif;
+    overflow: hidden;
 }
 
 #Header {
@@ -125,6 +127,7 @@ body, html {
         height: 100%;
         background: var(--dark);
         font-family: "Inter", sans-serif;
+        overflow: hidden;
     }
     
     #Header {
