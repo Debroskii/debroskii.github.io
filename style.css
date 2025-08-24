@@ -19,6 +19,7 @@ body, html {
     margin: 0;
     font-size: 16px;
     overflow: hidden;
+    overflowX: hidden;
 }
 
 #Container {
@@ -31,6 +32,7 @@ body, html {
     background: var(--dark);
     font-family: "Inter", sans-serif;
     overflow: hidden;
+    overflowX: hidden;
 }
 
 #Header {
@@ -128,6 +130,7 @@ body, html {
         background: var(--dark);
         font-family: "Inter", sans-serif;
         overflow: hidden;
+        overflowX: hidden;
     }
     
     #Header {
