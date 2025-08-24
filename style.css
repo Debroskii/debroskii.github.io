@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+    --dark: #1C1018;
+    --light: #D2D6EF;
+    --red-accent: #D81E5B;
+    --yellow-accent: #F7CE5B;
+    --blue-accent: #0197F6;
+    --green-accent: #31E981;
+    --beige-accent: #D1CAA1;
+}
+
+body, html {
+    background: var(--dark);
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+#Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: var(--dark);
+    font-family: "Inter", sans-serif;
+}
+
+#Header {
+    color: var(--light);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+#Header h1 {
+    font-size: 7rem;
+    font-weight: 900;
+    margin: 0;
+    /* background-image: radial-gradient(circle at 0% 100%, var(--red-accent), var(--yellow-accent));
+    color: transparent;
+    background-clip: text; */
+}
+
+#Header p {
+    font-size: 1rem;
+    font-weight: 400;
+    width: 40vw;
+    text-align: center;
+    margin: 0;
+    color: var(--light);
+}
+
+#Projects {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    margin-top: 1rem;
+}
+
+.project-link {
+    color: var(--light);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    margin: 1rem 1.5rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 2rem;
+}
+
+.project-link span {
+    font-size: 3rem;
+    user-select: none;
+}
+
+.project-link:nth-child(1):hover {
+    color: var(--red-accent);
+}
+
+.project-link:nth-child(2):hover {
+    color: var(--yellow-accent);
+}
+
+.project-link:nth-child(3):hover {
+    color: var(--blue-accent);
+}
+
+.project-link:nth-child(4):hover {
+    color: var(--green-accent);
+}
+
+.project-link:nth-child(5):hover {
+    color: var(--beige-accent);
+}
+
+#email {
+    position: absolute !important;
+    font-family: "Inter", sans-serif;
+    top: 96vh;
+    left: 1vw;
+    color: var(--light);
+    text-decoration: none;
+}
+
+#email span {
+    transform: translateY(30%);
+}
+
+#instagram {
+    position: absolute !important;
+    font-family: "Inter", sans-serif;
+    top: 96vh;
+    left: 90vw;
+    color: var(--light);
+    text-decoration: none;
+}
+
+#instagram span {
+    transform: translateY(30%);
+}
