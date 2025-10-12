@@ -21,8 +21,8 @@ let DokiDokiFont;
 let ChewyFont;
 
 function preload() {
-  DokiDokiFont = loadFont('/DokiDoki.otf');
-  ChewyFont = loadFont('/Chewy.ttf');
+  DokiDokiFont = loadFont('https://github.com/Debroskii/debroskii.github.io/raw/refs/heads/main/jtinvites/DokiDoki.otf');
+  ChewyFont = loadFont('https://github.com/Debroskii/debroskii.github.io/raw/refs/heads/main/jtinvites/Chewy.ttf');
 }
 
 function setup() {
