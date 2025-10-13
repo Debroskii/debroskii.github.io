@@ -1,6 +1,6 @@
 let colors;
 let petals = [];
-let numPetals = 151; //Used to be 150
+let numPetals = 75;
 let petalVelocityMeanDirection;
 let petalVelocityDirectionSD;
 let petalVelocityMeanMagnitude = 2;
@@ -334,10 +334,10 @@ function drawPetal(petal) {
 }
 
 function drawBigPetal(petal, progress) {
-  let size = petal.size.copy().mult(1 + 3 * progress);
+  let size = petal.size.copy().mult(1 + 5 * progress);
   push();
   translate(-width/2, -height/2);
-  translate(petal.position.x - petal.size.x/2, petal.position.y - petal.size.y/2);
+  translate(petal.position.x - petal.size.x/2, abs(petal.position.y - height/2  - petal.size.y/2));
   rotate(petal.rotation);
   noStroke();
   fill(red(petal.color), green(petal.color), blue(petal.color), 100);
