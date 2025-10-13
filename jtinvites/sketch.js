@@ -1,6 +1,6 @@
 let colors;
 let petals = [];
-let numPetals = 150;
+let numPetals = 151; //Used to be 150
 let petalVelocityMeanDirection;
 let petalVelocityDirectionSD;
 let petalVelocityMeanMagnitude = 2;
