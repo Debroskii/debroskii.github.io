@@ -379,6 +379,6 @@ function drawBigPetal(petal, progress) {
   pop();
 }
 
-function mouseClicked() {
+function mousePressed() {
   started = true;
 }
