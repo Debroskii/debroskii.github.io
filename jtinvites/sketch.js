@@ -379,6 +379,6 @@ function drawBigPetal(petal, progress) {
   pop();
 }
 
-function mousePressed() {
+function touchStarted() {
   started = true;
 }
