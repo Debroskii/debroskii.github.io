@@ -123,7 +123,7 @@ function draw() {
     textAlign(CENTER, CENTER);
     textFont(DotoFont);
     textSize(16);
-    text("Click to see some nice floating petals", -width/2.75, -30, 300, 50);
+    text("Click to see some nice floating petals", -150, -30, 300, 50);
     frameCount = 0;
     return;
   }
