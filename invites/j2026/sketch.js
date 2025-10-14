@@ -252,8 +252,11 @@ function draw() {
     text(message.display, width/2, height * whiteSectionHeightStart + 150 * pixelScale);
 
     textSize(13 * pixelScale);
-    if(callToAction.display.length < callToAction.target.length) {
-      callToAction.display += callToAction.target[callToAction.display.length];
+    if(frameCount % 3 == 0 && callToAction.display.length < callToAction.target.length) {
+      if(callToAction.display.length < callToAction.target.length) callToAction.display += callToAction.target[callToAction.display.length];
+      if(callToAction.display.length < callToAction.target.length) callToAction.display += callToAction.target[callToAction.display.length];
+      if(callToAction.display.length < callToAction.target.length) callToAction.display += callToAction.target[callToAction.display.length];
+      if(callToAction.display.length < callToAction.target.length) callToAction.display += callToAction.target[callToAction.display.length];
     }
     text(callToAction.display, 10, height * whiteSectionHeightStart + 175 * pixelScale, width - 20, height * (1 - whiteSectionHeightStart) - 95 * pixelScale);
 
