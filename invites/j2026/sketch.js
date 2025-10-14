@@ -59,7 +59,8 @@ let message = {
 }
 let callToAction = {
   display: "",
-  target: "Shoot me a message if you are interested or have any questions and we can get a meeting set up with everyone to talk and plan!"
+  target: "Shoot me a message if you are interested or have any questions and we can get a meeting set up with everyone to talk and plan!",
+  split: []
 }
 let pixelScale = 1;
 
@@ -85,6 +86,7 @@ function setup() {
       color(255, 192, 203)
     ]
   };
+  callToAction.split = callToAction.target.split(" ");
   petalVelocityMeanDirection = QUARTER_PI * 0.75;
   petalVelocityDirectionSD = PI / 12;
   for(let i = 0; i < numPetals; i++) {
@@ -219,7 +221,7 @@ function draw() {
     fill(199 * 0.75, 21 * 0.75, 133 * 0.75, textOpacity);
     textFont(ReceiptFont);
     textSize(13 * pixelScale);
-    if(frameCount % 3 == 0 && datesLabel.display.length < datesLabel.target.length) {
+    if(frameCount % 4 == 0 && datesLabel.display.length < datesLabel.target.length) {
       datesLabel.display += datesLabel.target[datesLabel.display.length];
     }
     textAlign(RIGHT, TOP);
@@ -234,7 +236,7 @@ function draw() {
     textFont(ReceiptFont);
     textSize(13 * pixelScale);
     textAlign(LEFT, TOP);
-    if(frameCount % 3 == 0 && estimatedPriceLabel.display.length < estimatedPriceLabel.target.length) {
+    if(frameCount % 4 == 0 && estimatedPriceLabel.display.length < estimatedPriceLabel.target.length) {
       estimatedPriceLabel.display += estimatedPriceLabel.target[estimatedPriceLabel.display.length];
     }
     text(estimatedPriceLabel.display, 25, height * whiteSectionHeightStart + 95 * pixelScale);
@@ -256,10 +258,7 @@ function draw() {
 
     textSize(13 * pixelScale);
     if(frameCount % 3 == 0 && callToAction.display.length < callToAction.target.length) {
-      if(callToAction.display.length < callToAction.target.length) callToAction.display += callToAction.target[callToAction.display.length];
-      if(callToAction.display.length < callToAction.target.length) callToAction.display += callToAction.target[callToAction.display.length];
-      if(callToAction.display.length < callToAction.target.length) callToAction.display += callToAction.target[callToAction.display.length];
-      if(callToAction.display.length < callToAction.target.length) callToAction.display += callToAction.target[callToAction.display.length];
+      callToAction.display += callToAction.split.splice(0, 1) + " ";
     }
     text(callToAction.display, 10, height * whiteSectionHeightStart + 175 * pixelScale, width - 20, height * (1 - whiteSectionHeightStart) - 95 * pixelScale);
 
@@ -274,7 +273,7 @@ function draw() {
     if(frameCount % 3 == 0 && admitOne.display.length < admitOne.target.length) {
       admitOne.display += admitOne.target[admitOne.display.length];
     }
-    if(frameCount % 3 == 0 && admitOne.displayEnglish.length < admitOne.targetEnglish.length) {
+    if(frameCount % 2 == 0 && admitOne.displayEnglish.length < admitOne.targetEnglish.length) {
       admitOne.displayEnglish += admitOne.targetEnglish[admitOne.displayEnglish.length];
     }
     text(admitOne.display, width/2, height - 90 * pixelScale);
