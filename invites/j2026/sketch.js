@@ -168,12 +168,15 @@ function draw() {
         petal.position.y = -petal.size.y;
       }
     }
+
+    let textOpacity = lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame);
+
     push();
     translate(-width/2, -height/2);
     noStroke();
-    fill(255, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+    fill(255, textOpacity);
     rect(0, height * whiteSectionHeightStart + 12, width, height * (1 - whiteSectionHeightStart) - 12);
-    fill(0, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+    fill(0, textOpacity);
     beginShape();
     vertex(0, height * whiteSectionHeightStart);
     vertex(15, height * whiteSectionHeightStart + 12);
@@ -186,11 +189,11 @@ function draw() {
     endShape(CLOSE);
     for(let i = 0; i < 60; i++) {
       let perfHoleSize = width / 60;
-      fill(0, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+      fill(0, textOpacity);
       ellipse(i * perfHoleSize + perfHoleSize / 2, height * whiteSectionHeightStart + 12, perfHoleSize * 0.65, perfHoleSize * 0.65);
     }
 
-    fill(255, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+    fill(255, textOpacity);
     textAlign(CENTER, CENTER);
     textFont(DokiDokiFont);
     textSize(132 * pixelScale);
@@ -199,7 +202,7 @@ function draw() {
     textSize(24 * pixelScale);
     text("JAPAN 2026", width/2, height * 0.25 + 55 * pixelScale);
 
-    fill(0, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+    fill(0, textOpacity);
     textFont(ReceiptFont);
     textSize(13 * pixelScale);
     textAlign(LEFT, TOP);
@@ -213,7 +216,7 @@ function draw() {
       name.display += name.target[name.display.length];
     }
     text(name.display, 25, height * whiteSectionHeightStart + 53 * pixelScale);
-    fill(199 * 0.75, 21 * 0.75, 133 * 0.75, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+    fill(199 * 0.75, 21 * 0.75, 133 * 0.75, textOpacity);
     textFont(ReceiptFont);
     textSize(13 * pixelScale);
     if(frameCount % 3 == 0 && datesLabel.display.length < datesLabel.target.length) {
@@ -242,7 +245,7 @@ function draw() {
     }
     text(estimatedPrice.display, 25, height * whiteSectionHeightStart + 108 * pixelScale);
 
-    fill(0, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+    fill(0, textOpacity);
     textFont(DotoFont);
     textSize(18 * pixelScale);
     textAlign(CENTER, TOP);
@@ -260,11 +263,11 @@ function draw() {
     }
     text(callToAction.display, 10, height * whiteSectionHeightStart + 175 * pixelScale, width - 20, height * (1 - whiteSectionHeightStart) - 95 * pixelScale);
 
-    fill(199 * 0.75, 21 * 0.75, 133 * 0.75, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+    fill(199 * 0.75, 21 * 0.75, 133 * 0.75, textOpacity);
     rectMode(CORNER)
     rect(0, height - 150 * pixelScale, width, 150 * pixelScale);
 
-    fill(255, lerp(0, 255, (frameCount - resizeFrameEnd) / ticketBaseFadeInFrame));
+    fill(255, textOpacity);
     textFont(ReceiptFont);
     textSize(64 * pixelScale);
     textAlign(CENTER, CENTER);
