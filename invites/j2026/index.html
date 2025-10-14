@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Totally Not An Invitation</title>
+    <link rel="icon" type="image/x-icon" href="favico.ico">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <script src="sketch.js"></script>
+    <script>
+      let searchParams = new URLSearchParams(window.location.search);
+      name = {
+        display: "",
+        target: searchParams.get("name") || "Nobody"
+      }
+      callToAction = {
+        display: "",
+        target: searchParams.get("message") || "Shoot me a message if you are interested or have any questions and we can get a meeting set up with everyone to talk and plan!"
+      }
+      if(searchParams.get("debug")) {
+        slowFrame = 60 * 1; //10
+        freezeFrame = 60 * 1; //12
+        resizeFrameStart = 60 * 1; //11
+        resizeFrameEnd = 60 * 2; //13
+      }
+    </script>
+  </body>
+</html>
