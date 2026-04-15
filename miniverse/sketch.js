@@ -29,7 +29,7 @@ function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
     textFont(font);
     CAMERA = createCamera();
-    CAMERA.perspective(2 * atan(height / 2 / 800), width / height, 0.01, 10000);
+    CAMERA.perspective(2 * atan(height / 2 / 800), width / height, 0.01, (windowWidth / windowHeight > 0.9 ? 10000 : 20000));
     TARGET_EYE_POSITION = createVector(0, 0, 0);
     TARGET_CENTER_POSITION = createVector(0, 0, 0);
     frameRate(120);
