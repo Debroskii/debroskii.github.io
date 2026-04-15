@@ -41,7 +41,13 @@ function initUI() {
         SIDEBAR.style('transform', 'translateY(0)');
         
         for(let system of SYSTEM_DIRECTORY) {
-            let entry = createDiv('').addClass('directory-entry').child(createSpan(system.name).addClass('directory-entry-name')).mousePressed(() => {
+            let isSmall = SMALL_SYSTEMS.find(s => s == system.name);
+            let isMedium = MEDIUM_SYSTEMS.find(s => s == system.name);
+            let isLarge = LARGE_SYSTEMS.find(s => s == system.name);
+
+            let suffix = isSmall ? " (Small)" : isMedium ? " (Medium)" : isLarge ? " (Large)" : "";
+
+            let entry = createDiv('').addClass('directory-entry').child(createSpan(system.name + suffix).addClass('directory-entry-name')).mousePressed(() => {
                 FOCUSED_SYSTEM = system.name;
                 let sys = SYSTEM_DIRECTORY.find(s => s.name == FOCUSED_SYSTEM);
                 if(sys) {
@@ -71,7 +77,7 @@ function initUI() {
                 if(DIRECTORY_ENTRIES_INDEX < 0) DIRECTORY_ENTRIES_INDEX = SYSTEM_DIRECTORY.length - 1;
                 updateDirectoryShowing();
             }).addClass('directory-button'))
-            .child(createDiv('').id('directory-entry').child(createSpan('(Click an arrow to get started)').id('focused-system-name')).mousePressed(() => {
+            .child(createDiv('').id('directory-entry').child(createP('(Click an arrow to get started)').id('focused-system-name')).mousePressed(() => {
                 if(FOCUSED_SYSTEM != "") {
                     let system = SYSTEM_DIRECTORY.find(s => s.name == FOCUSED_SYSTEM);
                     if(system) {
