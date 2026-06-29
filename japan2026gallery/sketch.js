@@ -96,7 +96,7 @@ function createAndPolulateRandomRow(filter = null, count = null) {
             continue;
         }
 
-        let img = createImg(ph).addClass("ph");
+        let img = createImg(`${ph}_small.jpeg`).addClass("ph");
         img.elt.onload = () => {
             const ratio = img.elt.naturalWidth / img.elt.naturalHeight;
             img.style("flex", `${ratio} 1 0`);
