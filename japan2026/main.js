@@ -1,5 +1,6 @@
 let isLoading = true;
 let imageCount = Object.keys(Registry.registryObj).length
+let ownerCounts = getAmountForOwners();
 let remainingImageCount = imageCount;
 let loadedImageCount = 0;
 let offscreenBufferContainer;
@@ -12,6 +13,7 @@ let imageRatios = {};
 let alreadyLoaded = [];
 let framesSinceExitedHighRes = 0;
 let hasFinishedLoadingAll = false;
+let filteredOwner = null;
 
 function setup() {
     frameRate(60);
@@ -40,6 +42,16 @@ function setup() {
     banner.style("background-image", `url(data/${selectRandomImageWithOwner("Elijah")})`);
     featuredShooter = createP("Captured By: Elijah").id("featured-shooter");
     banner.child(featuredShooter);
+    let filterContainer = createDiv().id("filter-container");
+    for(let owner of Object.keys(ownerCounts)) {
+        let button = createButton(owner).class("filter-button");
+        button.mousePressed(() => {
+            setOwnerFilter(owner);
+            button.addClass("selected")
+            if(filteredOwner == null) select(".selected")?.removeClass("selected");
+        });
+        filterContainer.child(button);
+    }   
 }
 
 function draw() {
@@ -63,7 +75,35 @@ function draw() {
     }
 }
 
-function generateAndPopulateRandomRowRecursive() {
+function setOwnerFilter(owner = null) {
+    if(filteredOwner === owner) {
+        setOwnerFilter(null);
+        return;
+    }
+    filteredOwner = owner;
+    select(".selected")?.removeClass("selected");
+    galleryContainer.remove();
+    galleryContainer = createDiv().id("gallery-container");
+    alreadyLoaded = [];
+    remainingImageCount = ownerCounts[owner] || imageCount;
+    hasFinishedLoadingAll = false;
+    generateAndPopulateRandomRowRecursive(owner);
+}
+
+function getAmountForOwners() {
+    let ownerCounts = {};
+    for (let key of Object.keys(Registry.registryObj)) {
+        let owner = Registry.registryObj[key].owner;
+        if (ownerCounts[owner]) {
+            ownerCounts[owner]++;
+        } else {
+            ownerCounts[owner] = 1;
+        }
+    }
+    return ownerCounts;
+}
+
+function generateAndPopulateRandomRowRecursive(owner = null) {
     if(hasFinishedLoadingAll) return;
     let row = createDiv().class("gallery-row");
     let imagesInRow = innerWidth > 768 ? random(2, 5) : random(1, 3);
@@ -71,7 +111,7 @@ function generateAndPopulateRandomRowRecursive() {
         imagesInRow = remainingImageCount;
     }
     for(let i = 0; i < imagesInRow; i++) {
-        let randomImageKey = getRandomNotLoaded();
+        let randomImageKey = getRandomNotLoaded(owner);
         let imageData = Registry.registryObj[randomImageKey];
         let imagePath = `data/thumbnails/${randomImageKey}`;
         let imageElement = createImg(imagePath, randomImageKey).class("gallery-image");
@@ -85,7 +125,7 @@ function generateAndPopulateRandomRowRecursive() {
         if(remainingImageCount <= 0) hasFinishedLoadingAll = true;
     }
     galleryContainer.child(row);
-    if(!hasFinishedLoadingAll) generateAndPopulateRandomRowRecursive()
+    if(!hasFinishedLoadingAll) generateAndPopulateRandomRowRecursive(owner)
 }
 
 function showHighResImageDisplay(imageKey) {
@@ -131,10 +171,10 @@ function showHighResImageDisplay(imageKey) {
     document.body.appendChild(highResImageContainer.elt);
 }
 
-function getRandomNotLoaded() {
-    let randomKey = selectRandomImageWithOwner(null);
+function getRandomNotLoaded(owner) {
+    let randomKey = selectRandomImageWithOwner(owner);
     while(alreadyLoaded.includes(randomKey)) {
-        randomKey = selectRandomImageWithOwner(null);
+        randomKey = selectRandomImageWithOwner(owner);
     }
     alreadyLoaded.push(randomKey);
     return randomKey;
