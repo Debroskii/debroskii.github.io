@@ -48,6 +48,30 @@
         font-size: 1rem;
         font-weight: 700;
     }
+
+    #filter-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        flex-wrap: wrap;
+        transform: translateY(6.5rem);
+    }
+    
+    #filter-container > button {
+        font-size: 1.5rem;
+        cursor: pointer;
+        font-family: "Doto";
+        font-weight: 900;
+        margin: 0.5rem 1rem 0.5rem 1rem;
+        padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+        border: 0.1rem solid black;
+    }
+    
+    #filter-container > .selected {
+        background: black;
+        color: white;
+    }
   }
 
 body {
@@ -275,7 +299,7 @@ a > .material-symbols-outlined {
     left: 0;
     right: 0;
     bottom: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .photo-marker {
@@ -283,4 +307,28 @@ a > .material-symbols-outlined {
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.4);
     object-fit: cover;
+}
+
+#filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    transform: translateY(6.5rem);
+}
+
+#filter-container > button {
+    font-size: 0.75rem;
+    cursor: pointer;
+    font-family: "Doto";
+    font-weight: 900;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    border: 0.1rem solid black;
+}
+
+#filter-container > .selected {
+    background: black;
+    color: white;
 }
